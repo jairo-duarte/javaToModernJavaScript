@@ -1,3 +1,5 @@
+console.debug("arrays.js started.");
+
 const alunosInterno = ["luizinho", "uguinho", "zezinho"];
 export { alunosInterno as alunos };
 
@@ -14,3 +16,15 @@ export default function createList(pref = "sr") {
     "</ul>"
   );
 }
+
+//Arrays
+let numbers = [1, 2, 3, 4, 5];
+//get first and second
+var [one, two] = numbers; // one = 1, two = 2
+// third is ignored
+var [one, two, , four] = numbers; // one = 1, two = 2, four = 4
+//rest
+var [one, ...rest] = numbers; // one = 1 , rest = [2,3,4,5]
+
+//append
+numbers = [...numbers, 6];
