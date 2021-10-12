@@ -1,5 +1,5 @@
 import "./styles.css";
-import { createList, alunos } from "./arrays";
+import createList, { alunos } from "./arrays";
 
 document.getElementById("app").innerHTML = `
 <h1>Hello Vanilla!!!</h1>
