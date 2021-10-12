@@ -3,7 +3,8 @@ export function createList() {
   return (
     "<ul>" +
     alunos
-      .filter((umAluno) => !umAluno.startsWith("z"))
+      .map((umAlunoOriginal) => umAlunoOriginal.toUpperCase())
+      .filter((umAluno) => !umAluno.startsWith("Z"))
       .map((umAlunoFiltrado) => `<li>${umAlunoFiltrado}</li>`)
       .reduce((acc, umAlunoLi) => {
         return acc.concat(umAlunoLi);
