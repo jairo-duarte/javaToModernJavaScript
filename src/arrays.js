@@ -27,4 +27,6 @@ var [one, two, , four] = numbers; // one = 1, two = 2, four = 4
 var [one, ...rest] = numbers; // one = 1 , rest = [2,3,4,5]
 
 //append
-numbers = [...numbers, 6];
+let numbers2 = [...numbers, 6];
+console.log("numbers=" + numbers);
+console.log("numbers2=" + numbers2);

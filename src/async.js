@@ -5,7 +5,7 @@ function cake() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("🎂");
-    }, 2000);
+    }, 205);
   });
 }
 
@@ -14,7 +14,7 @@ async function msg() {
   console.log("Message:", msg);
 }
 
-msg(); // Message: 🦇 <-- after 2 seconds
+msg(); // Message: 🎂 <-- after 205 ms
 
 //-------------------------COMPOSITION----------------------------------------
 
@@ -22,7 +22,7 @@ function the() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("the");
-    }, 300);
+    }, 200);
   });
 }
 
@@ -30,7 +30,7 @@ function isLie() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("is a lie!");
-    }, 500);
+    }, 100);
   });
 }
 
@@ -38,11 +38,11 @@ function isLie() {
 function concPromisses() {
   the().then((a) =>
     cake().then((b) =>
-      isLie().then((c) => console.log(`concPromisses: ${a} ${b} ${c}`)),
-    ),
+      isLie().then((c) => console.log(`concPromisses: ${a} ${b} ${c}`))
+    )
   );
 }
-concPromisses(); // <-- after 1 second
+concPromisses(); // <-- after 405 ms
 
 // new way
 async function compMsg() {
@@ -52,7 +52,7 @@ async function compMsg() {
 
   console.log(`compMsg: ${a} ${b} ${c}`);
 }
-compMsg(); // <-- after 1 second
+compMsg(); // <-- after after 405 ms
 
 //-----------------------FASTER-------------------------------------------
 // parallel
@@ -61,7 +61,7 @@ async function parallelMsg() {
   console.log(`parallelMsg: ${a} ${b} ${c}`);
 }
 
-parallelMsg(); // 🤡 lurks in the shadows <-- after 500ms
+parallelMsg(); // the 🎂 is a lie!  <-- after 205 ms
 
 //------------------------------------------------------------------------
 
@@ -119,6 +119,17 @@ console.groupCollapsed("luckyMsg");
 for (let i = 0; i < 10; i++) {
   luckyMsg();
 }
+
+function luckyMsgTraditional() {
+  yayOrNay()
+    .then((result) => console.log("luckyMsgTraditional=" + result))
+    .catch((result) => console.log("luckyMsgTraditional=" + result));
+}
+
+for (let i = 0; i < 10; i++) {
+  luckyMsgTraditional();
+}
+
 console.groupEnd();
 
 //---------------------------CONCLUSION-------------------------------
