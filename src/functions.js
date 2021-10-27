@@ -31,7 +31,7 @@ const superSmall = () => /* no log */ "hello there..";
 superSmall.extraprop = "hidden  crasy prop";
 console.log(`extrapop=${superSmall.extraprop}`);
 
-//HOF
+//HOF.
 const add = (x) => (y) => x + y;
 console.log("add=" + add(1)(3));
 
