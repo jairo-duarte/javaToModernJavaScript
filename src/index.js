@@ -2,7 +2,7 @@ import "./styles.css";
 import createList, { alunos } from "./arrays";
 
 console.debug("index.js started...");
-asdas
+
 var app = document.getElementById("app");
 app.innerHTML = `
 <h3>!Hello Vanilla!</h3>
