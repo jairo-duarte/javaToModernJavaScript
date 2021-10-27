@@ -5,7 +5,7 @@ console.debug("index.js started.");
 
 var app = document.getElementById("app");
 app.innerHTML = `
-<h3>Hello Vanilla!</h3>
+<h3>Hello Vanilla!!!!</h3>
 <div>
   We use the same configuration as Parcel to bundle this sandbox, you can find more
   info about Parcel 
