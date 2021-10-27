@@ -1,4 +1,4 @@
-//classic()
+//classic();
 //classic funcion
 function classic() {
   console.log("classic called");
@@ -9,6 +9,7 @@ function classic() {
 const regular = function () {
   console.log("regular called");
 };
+
 // arrow function
 const arrowFunc = () => {
   console.log("arrowFunc called");
@@ -27,7 +28,7 @@ const singleParamFunc = (firstName) => {
 const superSmall = () => /* no log */ "hello there..";
 
 //functions are first class citzen, dont do this crap, adding a property to a function object
-superSmall.extraprop = "hidden";
+superSmall.extraprop = "hidden  crasy prop";
 console.log(`extrapop=${superSmall.extraprop}`);
 
 //HOF

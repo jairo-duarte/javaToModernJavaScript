@@ -14,12 +14,12 @@ let developer = {
 
 //destructure developer object
 const { firstName, lastName: last } = developer;
-console.log(firstName + last);
+console.log("after destruct " + firstName + last);
 
 // same Ref
 let developerCopy = developer;
-developer.firstName = "john second";
-console.log("same Ref developerCopy=" + developerCopy.firstName);
+developerCopy.firstName = "john second";
+console.log("same Ref developer=" + developer.firstName);
 
 let intA,
   intB = 10;
@@ -42,15 +42,18 @@ console.log("serialized developer " + developerSerialized);
 const developerTeleTransported = JSON.parse(developerSerialized);
 console.log(
   "developerTeleTransported has sayHi function ?=" +
-    developerTeleTransported.sayHi ===
-    undefined
-    ? "yes"
-    : "no"
+    (developerTeleTransported.sayHi === undefined
+      ? "desconhecido"
+      : "existe sim")
 );
 
 // Destructuring function parameters
 function greetings({ name, period = "afternoon" }) {
   console.log(`${name} says: good ${period}`);
 }
-const introduction = { name: "ozzy", period: "night" };
+const introduction = {
+  name: "ozzy",
+  period: "night",
+  algumacoisaestranha: false
+};
 greetings(introduction);
