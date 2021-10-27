@@ -1,3 +1,5 @@
+console.group("functions.js started.");
+
 //classic();
 //classic funcion
 function classic() {
@@ -52,3 +54,8 @@ const executeOnlyWhenNeeded = (condition, callback, ...args) => {
   else return "nop";
 };
 console.log(executeOnlyWhenNeeded(true, conc, "R", "J"));
+
+
+
+
+console.groupEnd();

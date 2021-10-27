@@ -1,4 +1,4 @@
-console.debug("objects.js started.");
+console.group("objects.js started.");
 
 let developer = {
   firstName: "john original",
@@ -57,3 +57,6 @@ const introduction = {
   algumacoisaestranha: false
 };
 greetings(introduction);
+
+
+console.groupEnd();

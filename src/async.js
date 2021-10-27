@@ -99,6 +99,8 @@ async function errorMsg(x) {
 errorMsg("Hello"); // HELLO
 errorMsg(34); // Ohh no: val.toUpperCase is not a function
 
+
+// randonmly generate error
 function yayOrNay() {
   return new Promise((resolve, reject) => {
     const val = Math.round(Math.random() * 1); // 0 or 1, at random
@@ -107,30 +109,32 @@ function yayOrNay() {
   });
 }
 
+// using try/catch the same java way
 async function luckyMsg() {
   try {
     const msg = await yayOrNay();
-    console.log("luckyMsg=" + msg);
+    console.debug("luckyMsg=" + msg);
   } catch (err) {
     console.log("luckyMsg=" + err);
   }
 }
-console.groupCollapsed("luckyMsg");
+
 for (let i = 0; i < 10; i++) {
   luckyMsg();
 }
 
+// now using promisses callbacks
 function luckyMsgTraditional() {
   yayOrNay()
-    .then((result) => console.log("luckyMsgTraditional=" + result))
-    .catch((result) => console.log("luckyMsgTraditional=" + result));
+    .then((result) => console.debug("Success luckyMsgTraditional==" + result))
+    .catch((result) => console.error("Failed. luckyMsgTraditional=" + result));
 }
 
 for (let i = 0; i < 10; i++) {
   luckyMsgTraditional();
 }
 
-console.groupEnd();
+
 
 //---------------------------CONCLUSION-------------------------------
 

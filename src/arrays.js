@@ -1,4 +1,4 @@
-console.debug("arrays.js started.");
+console.group("arrays.js started.");
 
 const alunosInterno = ["luizinho", "uguinho", "zezinho"];
 export { alunosInterno as alunos };
@@ -28,5 +28,8 @@ var [one, ...rest] = numbers; // one = 1 , rest = [2,3,4,5]
 
 //append
 let numbers2 = [...numbers, 6];
-console.log("numbers=" + numbers);
+console.log("numbers==" + numbers);
 console.log("numbers2=" + numbers2);
+
+
+console.groupEnd();
