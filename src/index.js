@@ -15,6 +15,6 @@ app.innerHTML = `
 `;
 
 if (!alunos.includes("fulaninho")) {
-  alunos.push("fulaninho2");
+  alunos.push("fulaninho");
 }
 document.getElementsByClassName("arraysExample")[0].innerHTML = createList();
