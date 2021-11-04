@@ -16,11 +16,12 @@ let developer = {
 const { firstName, lastName: last } = developer;
 console.log("after destruct " + firstName + last);
 
-// same Ref
+// same Ref, objetos são passados como referência
 let developerCopy = developer;
 developerCopy.firstName = "john second";
 console.log("same Ref developer=" + developer.firstName);
 
+// tipos primitivos, passagem por valor
 let intA,
   intB = 10;
 intA = 20;
@@ -36,7 +37,7 @@ console.log("copy said=" + developerCopy.sayHi());
 //Copy, but with overrides
 developerCopy = { ...developer, lastName: "cena" };
 
-//Convoluted, but usefull way of 'cloning'.
+//Serialização/Deserialização, uma forma de 'cópia'
 const developerSerialized = JSON.stringify(developerCopy);
 console.log("serialized developer " + developerSerialized);
 const developerTeleTransported = JSON.parse(developerSerialized);
@@ -47,16 +48,16 @@ console.log(
       : "existe sim")
 );
 
-// Destructuring function parameters
-function greetings({ name, period = "afternoon" }) {
-  console.log(`${name} says: good ${period}`);
+// Destructuring function parameters, default value, rename
+function greetings({ name: renamed, period = "afternoon" }) {
+  console.log(`${renamed} says: good ${period}`);
 }
+
 const introduction = {
   name: "ozzy",
   period: "night",
-  algumacoisaestranha: false
+  algumaCoisaAMais: false
 };
 greetings(introduction);
-
 
 console.groupEnd();

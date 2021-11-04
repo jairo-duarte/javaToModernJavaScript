@@ -1,5 +1,5 @@
+import createList, * as arraysMod from "./arrays"; //import do default, e do restante com nameSpace
 import "./styles.css";
-import createList, { alunos } from "./arrays";
 
 console.debug("index.js started...");
 
@@ -14,7 +14,7 @@ app.innerHTML = `
 
 `;
 
-if (!alunos.includes("fulaninho")) {
-  alunos.push("fulaninho");
+if (!arraysMod.alunos.includes("fulaninho")) {
+  arraysMod.alunos.push("fulaninho");
 }
-document.getElementsByClassName("arraysExample")[0].innerHTML = createList();
+document.getElementsByClassName("arraysExample")[0].innerHTML = createList(); // arraysMod.default()

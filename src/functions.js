@@ -6,11 +6,12 @@ function classic() {
   console.log("classic called");
 }
 
-//regular()
+//regular(); // hoisting não se aplica, mesmo sendo var
 // annonymous function
-const regular = function () {
+var annonymousFunc = function () {
   console.log("regular called");
 };
+annonymousFunc();
 
 // arrow function
 const arrowFunc = () => {
@@ -18,44 +19,45 @@ const arrowFunc = () => {
 };
 // parameters
 const arrowFuncParams = (firstName, lastName) => {
-  console.log("arrowFuncParams called");
   return firstName + " " + lastName;
 };
-// simplification
-const singleParamFunc = (firstName) => {
-  console.log("singleParamFunc called");
-  return firstName;
-};
-// super simple
+// simplificação, para um parametro. Mas é uma má pratica remover ().
+//const singleParamFunc = firstName => {
+//  return firstName;
+//};
+
+// super simples
 const superSmall = () => /* no log */ "hello there..";
 
 //functions are first class citzen, dont do this crap, adding a property to a function object
 superSmall.extraprop = "hidden  crasy prop";
 console.log(`extrapop=${superSmall.extraprop}`);
 
-//HOF.
+//HOF Higher Order Function.
 const add = (x) => (y) => x + y;
+//usando uma sintaxe menos densa. Mais clara de entender o inicio e fim de cada parte
+//const add = (x) =>{return (y) =>{return x + y}};
 console.log("add=" + add(1)(3));
-
-//HOF, but more clear
+//mesmo HOF add, mas de forma ainda mais clara
 function add2(x) {
-  //x = x * 2;
-  return function (y) {
+  //x = x * 2; // esta alteração de x é acessível a add3
+  function add3(y) {
     return x + y;
-  };
+  }
+  return add3;
 }
+// nameLessFunction uma constante que vai receber a ref de uma função
 const nameLessFunction = add2(1);
+// notem que nameLessFunction recebe y=3 como parametro, o acesso a x=1 é dado pelo seu escopo
 console.log("nameLessFunction=" + nameLessFunction(3));
 
-//CallBack
+//CallBack , assim como variáveis, a ref. de uma função pode ser passada como parametro
 const conc = (a, b) => a + "" + b;
+// a palavra 'conc' representa o código e escopo da função. Adicionando (), como em 'conc()', temos o resultado da execução desta função juntamente com seu escopo
 const executeOnlyWhenNeeded = (condition, callback, ...args) => {
   if (condition) return callback(...args);
   else return "nop";
 };
 console.log(executeOnlyWhenNeeded(true, conc, "R", "J"));
-
-
-
 
 console.groupEnd();

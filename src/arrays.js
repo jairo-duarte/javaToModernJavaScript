@@ -3,6 +3,7 @@ console.group("arrays.js started.");
 const alunosInterno = ["luizinho", "uguinho", "zezinho"];
 export { alunosInterno as alunos };
 
+// uso de callbacks em arrays, map/filter/reduce
 export default function createList(pref = "sr") {
   return (
     "<ul>" +
@@ -27,9 +28,9 @@ var [one, two, , four] = numbers; // one = 1, two = 2, four = 4
 var [one, ...rest] = numbers; // one = 1 , rest = [2,3,4,5]
 
 //append
-let numbers2 = [...numbers, 6];
+numbers = [...numbers, 6]; // [1, 2, 3, 4, 5, 6]
+var numbers2 = [0, ...numbers, 7]; // [0, 1, 2, 3, 4, 5, 6, 7]
 console.log("numbers==" + numbers);
 console.log("numbers2=" + numbers2);
-
 
 console.groupEnd();
