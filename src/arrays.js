@@ -12,11 +12,19 @@ export default function createList(pref = "sr") {
       .filter((umAluno) => !umAluno.startsWith("Z")) //["LUIZINHO", "UGUINHO","FULANINHO"]
       .map((umAlunoFiltrado) => `<li>${pref} ${umAlunoFiltrado}</li>`) //["<li>LUIZINHO</li>", "<li>UGUINHO</li>","<li>FULANINHO</li>"]
       .reduce((acc, umAlunoLi) => {
-        return acc.concat(umAlunoLi);
+        return acc + umAlunoLi;
       }) + // <li>LUIZINHO</li><li>UGUINHO</li><li>FULANINHO</li>
     "</ul>"
   );
 }
+
+console.log(
+  "reduce" +
+    [1, 10, 100].reduce((acc, item) => {
+      console.log(`inter acc=${acc} item=${item}`);
+      return acc + item;
+    })
+);
 
 //Arrays
 let numbers = [1, 2, 3, 4, 5];

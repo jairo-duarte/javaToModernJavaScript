@@ -6,12 +6,14 @@ function classic() {
   console.log("classic called");
 }
 
-//regular(); // hoisting não se aplica, mesmo sendo var
+//annonymousFunc(); // hoisting não se aplica, mesmo sendo var
 // annonymous function
 var annonymousFunc = function () {
   console.log("regular called");
 };
-annonymousFunc();
+annonymousFunc = function () {
+  console.log("regular called 2.");
+};
 
 // arrow function
 const arrowFunc = () => {
@@ -40,19 +42,24 @@ const add = (x) => (y) => x + y;
 console.log("add=" + add(1)(3));
 //mesmo HOF add, mas de forma ainda mais clara
 function add2(x) {
-  //x = x * 2; // esta alteração de x é acessível a add3
+  x = x * 2; // esta alteração de x é acessível a add3
   function add3(y) {
     return x + y;
   }
-  return add3;
+  function sub(y) {
+    return x - y;
+  }
+
+  if (x < 10) return add3;
+  else return sub;
 }
 // nameLessFunction uma constante que vai receber a ref de uma função
-const nameLessFunction = add2(1);
+const nameLessFunction = add2(3);
 // notem que nameLessFunction recebe y=3 como parametro, o acesso a x=1 é dado pelo seu escopo
-console.log("nameLessFunction=" + nameLessFunction(3));
+console.log("nameLessFunction=" + nameLessFunction(1));
 
 //CallBack , assim como variáveis, a ref. de uma função pode ser passada como parametro
-const conc = (a, b) => a + "" + b;
+const conc = (a, b) => a + "-" + b;
 // a palavra 'conc' representa o código e escopo da função. Adicionando (), como em 'conc()', temos o resultado da execução desta função juntamente com seu escopo
 const executeOnlyWhenNeeded = (condition, callback, ...args) => {
   if (condition) return callback(...args);
